@@ -1,6 +1,6 @@
-language: generic
 # we need sudo permissions when we use docker
 sudo: required
+language: generic
 # we need a copy of docker installed
 services: 
   - docker
