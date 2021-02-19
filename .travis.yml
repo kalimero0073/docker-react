@@ -40,5 +40,4 @@ deploy:
   # to not paste api key directly as the repo is public
   # use env var on travis account under more options - settings with display in logs unchecked
   access_key_id: $AWS_ACCESS_KEY
-  secret_access_key:
-    secure: "$AWS_SECRET_KEY"
+  secret_access_key: $AWS_SECRET_KEY
