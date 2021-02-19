@@ -1,0 +1,18 @@
+language: generic
+# we need sudo permissions when we use docker
+sudo: required
+# we need a copy of docker installed
+services: 
+  - docker
+
+# series of cmds that are executed before the tests are run
+before_install:
+  # build docker img with tagged name (repo name used here - not a must) - tag used only inside travis process 
+  - docker build -t kalimero0073/docker-react -f Dockerfile.dev .
+
+# cmds to be executed to run the test suite
+# travis watches the output - when cmd return status code != 0 it assumes that sth is broken
+# cmd oriented towards docker run img specific_cmd
+# default npm run test cmd never exits - so we need the test suite to exit automatically when done -> -- --coverage
+script:
+  - docker run -e CI=true kalimero0073/docker-react npm run test -- --coverage
