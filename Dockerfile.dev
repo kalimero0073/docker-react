@@ -1,0 +1,17 @@
+# only for development environment (-> .dev); Dockerfile without .dev is for production
+
+# base image
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+RUN npm install 
+
+# we could delete this instruction as we use refs to the project folder outside the container
+# but we could leave it as in the future we may decide to stop using docker-compose
+# or use this in a production environment
+COPY . .
+
+# COMD ["executable", "param1", "param2"...]
+CMD ["npm", "run", "start"]
