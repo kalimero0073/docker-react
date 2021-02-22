@@ -17,6 +17,9 @@ function App() {
         >
           Learn React!
         </a>
+        <p>
+          This was added from the feature branch
+        </p>
       </header>
     </div>
   );
