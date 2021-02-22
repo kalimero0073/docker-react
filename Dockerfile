@@ -14,4 +14,4 @@ FROM nginx
 # elastic beanstalk will look for expose instruction and map to this port (80)
 EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
-## the default cmd will start nginx for uns
+## the default cmd will start nginx for us
